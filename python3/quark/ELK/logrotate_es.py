@@ -21,7 +21,7 @@ def index_del(index):
         if diff_time > 10:
             session2 =  "http://172.29.150.198:9200/%s" %(i)
             print(session2)
-            requests.delete(session2)
+            # requests.delete(session2)
 
 if __name__ == "__main__":
     for i in project_index:
