@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎光临</title>
+</head>
+
+<body>
+欢迎光临夸客
+<ul>
+{% for item in longlist %}
+    <li>{{ item }}{% if forloop.first %}:{% endif %}{% if not forloop.last %},{% endif %}</li>
+{% empty %}
+    <li>抱歉，空列表</li>
+{% endfor %}
+</ul>
+
+<form action="/login/">
+    用户名:<br>
+    <input type="text" name="username" value="">
+    <br><br>
+    <input type="submit" value="登录">
+</form>
+
+<p>如果您点击提交，表单数据会被发送到名为 demo_form.asp 的页面。</p>
+
+{% if request.user.is_authenticated %}
+    {{ request.user.username }}，您好！
+{% else %}
+    请登陆，这里放登陆链接
+{% endif %}
+
+
+
+</body>
+</html>
+{{ string }}
+{% for i in testlist %}
+    {{ i }}
+{% endfor %}
+
+{% if 'django' in testlist %}
+在名单里
+{% endif %}
+
+站点：{{ info_dict.site }} 内容：{{ info_dict.content }}
+
+{% for key, value in info_dict.items %}
+    {{ key }}: {{ value }}
+{% endfor %}
+
+{% url 'add1' 4 5 %}
+

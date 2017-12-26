@@ -5,7 +5,8 @@
 
 import requests,time,json,datetime
 
-project_index= ["cfca","cmf","epay","goapi","jytloan","payment","tts"]
+# project_index= ["cfca","cmf","epay","goapi","jytloan","payment","tts"]
+project_index= ["cobra", "nxd-esb", "nxdapp", "posp", "qf"]
 
 def index_get(url):
     session = requests.get(url)
@@ -18,14 +19,14 @@ def index_del(index):
         es_create_time = int(index[i]['settings']['index']['creation_date']) // 1000
         current_time = time.mktime(time.strptime(str(datetime.date.today()), '%Y-%m-%d'))
         diff_time = (current_time - es_create_time) // (3600 * 24)
-        if diff_time > 10:
-            session2 =  "http://172.29.150.198:9200/%s" %(i)
+        if diff_time > 30:
+            session2 =  "http://10.19.64.112:9200/%s" %(i)
             print(session2)
             # requests.delete(session2)
 
 if __name__ == "__main__":
     for i in project_index:
-        purl = "http://172.29.150.198:9200/%s-*" %(i)
+        purl = "http://10.19.64.112:9200/%s-*" %(i)
         es_index = index_get(purl)
         index_del(es_index)
 

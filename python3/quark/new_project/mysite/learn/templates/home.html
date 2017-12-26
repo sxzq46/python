@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quark</title>
+</head>
+<body>
+{% url 'add2' 4 5 as the_url %}
+<a href="{{ the_url }}">链接到: {{the_url}}</a>
+{% for item in List %}
+{{ item }}{% if not forloop.last %},{% endif %}
+{% endfor %}
+</body>
+</html>
