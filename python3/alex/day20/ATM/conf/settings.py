@@ -11,3 +11,9 @@ DATABASE = {
     'name': 'accounts',
     'path': '%s\\db' %BASE_DIR
 }
+
+LOG_LEVEL = logging.INFO
+LOG_TYPE = {
+    "transcation": "transcations.log",
+    "access": "access.log",
+}

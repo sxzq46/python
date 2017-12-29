@@ -7,17 +7,24 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(base_dir)
 from modules import accounts,auth,db_handler,logger,transaction
 
-user_account = {
+trans_logger  = logger.logger('transaction')
+access_logger = logger.logger('access')
+
+user_data = {
     "authenticated": False,
     "user_id": None,
     "user_data": None
 }
 
 
-user_data = auth
+def interactive(acc_data):
+    
 
-if user_account["authenticated"]:
-    user_data = user_account["user_id"]
+def run():
+    acc_data = auth.login(user_data,access_logger)
+    if user_data["authenticated"]:
+        user_data["user_id"] = acc_data
+
 
 
 
