@@ -1,0 +1,38 @@
+{% load my_tag %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/login/" method="post">
+    <input type="text" name="user">
+    <input type="text" name="pwd">
+    <input type="submit" name="提交">
+    {% csrf_token %}
+</form>
+
+
+{#{% verbatim %}#}
+{#{{ name }}#}
+{#{% endverbatim %}#}
+
+{#{% my_add100 4 %}#}
+
+{#{{ num|my_add100:8 }}#}
+{##}
+{#{% my_add 12 34 56 %}#}
+
+{% if num|my_add100:34 > 100 %}
+    <p>大于100</p>
+{% elif num|my_add100:34 < 100 %}
+    <p>小于100</p>
+{% else %}
+    <p>等于100</p>
+{% endif %}
+
+
+</body>
+</html>
